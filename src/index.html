@@ -9,6 +9,9 @@
 <body>
     <div class="nav-bar"></div>
     <div id="app">
+        <div class="cart">
+            <span>Cart({{cart}})</span>
+        </div>
         <div class="product">
             <div class="product-image">
                 <img :src="image" :alt="altText">
@@ -24,11 +27,19 @@
                 <p v-else>Out of Stock</p>
                 <span v-show="onSale">On Sale</span>
                 <div>
-                    <p v-for="variant in variants">{{variant.color}}</p>
+                    <div v-for="variant in variants">
+                        <p @mouseover="updateProduct(variant.image)">{{variant.color}}</p>
+                    </div>
                 </div>
                 <div>
                     <strong>Sizes:</strong>
                     <span v-for="size in sizes">{{size}} </span>
+                </div>
+                <div>
+                    <button v-on:click="addToCart">Add to cart</button>
+                </div>
+                <div>
+                    <button v-on:click="removeFromCart">Remove from cart</button>
                 </div>
                 <p><a :href="link" target="_blank">More products like this</a></p>
             </div>
