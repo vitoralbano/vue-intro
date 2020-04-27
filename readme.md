@@ -41,3 +41,13 @@
 * The `v-on` directive can trigger a method
 * Triggered methods can take in arguments
 * `this` refers to the current Vue instance's data as well other methods declared inside the instance
+
+## 6. Class & Style binding
+* Data can be bound to an element's `style` attribute
+* Data can be bound to an element's `class`
+* We can use expressions inside an element's class binding to evaluate whether a class should appear or not
+* You can bind an entire class object or array of classes to an element
+```html
+<div :class="classObject"></div>
+<div :class="[activeClass, errorClass]"></div>
+```
