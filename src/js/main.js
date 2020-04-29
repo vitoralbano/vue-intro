@@ -121,7 +121,7 @@ Vue.component('product',{
 Vue.component('product-details', {
     props: {
         details: {
-            type: Object,
+            type: Array,
             required: true
         }
     },
