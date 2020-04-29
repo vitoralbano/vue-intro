@@ -73,3 +73,9 @@
 * Props are fed into a component through a custom attribute
 * Props can be dynamically bound to the parent's data
 * Vue dev tools provide helpful insight about your components
+
+## 9. Communicating events
+* A component can let its parent know that an event has happened with `$emit`
+* A component can use an event handler with the `v-on` directive (`@` for short) to listen to for an event emission, which can trigger a method on the parent
+* A component can `$emit` data along with the announcement that an event has occurred
+* A parent can use data emitted from its child

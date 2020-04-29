@@ -30,11 +30,10 @@ Vue.component('product',{
                     id: 2235,
                     color: "blue",
                     image: "./assets/vmSocks-blue.png",
-                    quantity: 0,
+                    quantity: 2,
                 }
             ],
             sizes: [37, 39, 40, 44],
-            cart: 0,
         }
     },
     computed: {
@@ -63,10 +62,10 @@ Vue.component('product',{
     },    
     methods: {
         addToCart() {
-            this.cart += 1;
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].id);
         },
         removeFromCart() {
-            this.cart = this.cart - 1 >= 0 ? this.cart - 1 : 0;
+            this.$emit('remove-from-cart', this.variants[this.selectedVariant].id);
         },
         updateProduct(index) {
             this.selectedVariant = index;
@@ -74,9 +73,6 @@ Vue.component('product',{
     },    
     template: `<div>
         <p>Shipping: {{shipping}}</p>
-        <div class="cart">
-            <span>Cart({{cart}})</span>
-        </div>
         <div class="product">
             <div class="product-image">
                 <img :src="image" :alt="altText">
@@ -133,7 +129,29 @@ Vue.component('product-details', {
 
 var app = new Vue({
     el: '#app',
+    methods: {
+        addToCart(id) {
+            if(!this.cart.hasOwnProperty(id)) {
+                this.cart[id] = 0;
+            }
+            this.cart[id] += 1;
+            this.cartItems += 1;
+        },
+        removeFromCart(id) {
+            if(this.cart.hasOwnProperty(id) && this.cart[id]) {
+                this.cart[id] -= 1;
+
+                if(!this.cart[id]) {
+                    delete this.cart[id];
+                }
+
+                this.cartItems -= 1;
+            }
+        }
+    },
     data: {
-        premium: true
+        premium: true,
+        cart: {},
+        cartItems: 0
     }
 });
