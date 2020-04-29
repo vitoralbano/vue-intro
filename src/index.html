@@ -9,50 +9,7 @@
 <body>
     <div class="nav-bar"></div>
     <div id="app">
-        <div class="cart">
-            <span>Cart({{cart}})</span>
-        </div>
-        <div class="product">
-            <div class="product-image">
-                <img :src="image" :alt="altText">
-            </div>
-            <div class="product-info">
-                <h1>{{title}}</h1>
-                <p>{{sale}}</p>
-                <ul>
-                    <li v-for="detail in details">{{detail}}</li>
-                </ul>
-                <p v-if="inventory > 10">In Stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
-                <p v-else :class="{lineThrough: !inStock}">Out of Stock</p>
-                <span v-show="onSale">On Sale</span>
-                <div>
-                    <div class="color-box"
-                        v-for="(variant, index) in variants"
-                        :key="variant.id"
-                        :style="{backgroundColor: variant.color}"
-                        @mouseover="updateProduct(index)"
-                        >
-                    </div>
-                </div>
-                <div>
-                    <strong>Sizes:</strong>
-                    <span v-for="size in sizes">{{size}} </span>
-                </div>
-                <div>
-                    <button v-on:click="addToCart"
-                        :disabled="!inStock"
-                        :class="{disabledButton: !inStock}">
-                        Add to cart
-                    </button>
-                </div>
-                <div>
-                    <button v-on:click="removeFromCart">Remove from cart</button>
-                </div>
-                <p><a :href="link" target="_blank">More products like this</a></p>
-            </div>
-        </div>
-
+        <product :premium="premium"></product>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="./js/main.js"></script>

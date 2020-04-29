@@ -63,3 +63,13 @@
 > 
 > It is also important to remember that you should not be mutationg your data model from within a computed property. You are merely computing values based on other values.
 > Keep these functions pure.
+
+## 8. Components
+* Components are blocks of code, grouped together within a custom element
+* Components make applications more manageable by breaking up the whole into reusable parts that have their own structure and behavior
+* Data on a component mus be a function
+* Props are used to pass data from parent to child
+* We can specify requirements for the props a compoment is receiving
+* Props are fed into a component through a custom attribute
+* Props can be dynamically bound to the parent's data
+* Vue dev tools provide helpful insight about your components
