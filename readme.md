@@ -85,3 +85,10 @@
 * We can use the `number` modifier to tel Vue to cast that value as a number, but there is a bug with it
 * We can use the `.prevent` event modifier to stop the page from reloading when the from is submitted
 * We can use Vue to fairly simple custom form validation
+
+## 11. Tabs
+* Is it possible to event bus, but not recommended for bigger projects
+
+>Using an event bus is a common solution and you may see it in others' Vue code, but please be aware this isn't the best solution for communicating amongst components within your app.
+> 
+> As your app grows, you'll want to implement Vue's own sate management solution: [Vuex](https://vuex.vuejs.org/en/intro.html). This is a state-management pattern and library.
