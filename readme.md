@@ -79,3 +79,9 @@
 * A component can use an event handler with the `v-on` directive (`@` for short) to listen for an event emission, which can trigger a method on the parent
 * A component can `$emit` data along with the announcement that an event has occurred
 * A parent can use data emitted from its child
+
+## 10. Forms
+* We can use `v-model` directive to create two-way binding on form elements
+* We can use the `number` modifier to tel Vue to cast that value as a number, but there is a bug with it
+* We can use the `.prevent` event modifier to stop the page from reloading when the from is submitted
+* We can use Vue to fairly simple custom form validation
